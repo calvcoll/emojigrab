@@ -32,7 +32,7 @@ defmodule EmojiGrab do
 
   def writeEmojiJSON (emoji_list) do
     string = Enum.reduce(emoji_list, "", fn(emoji, acc) ->
-      Enum.join([acc, '"#{emoji.shortcode}", "/emoji/#{emoji.shortcode}.png"\n'], "")
+      Enum.join([acc, '#{emoji.shortcode}, /emoji/#{emoji.shortcode}.png\n'], "")
     end)
     File.write!("emoji/emoji.txt", string)
   end
